@@ -11,10 +11,16 @@
 }
 
 .input {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   padding: 15px;
-  border: 1px solid #1f0909;
+  border: 3px solid #817a7a;
+  background-color: azure;
+  color: black;
   border-radius: 4px;
   margin-top: 5px;
   margin-bottom: 5px;
   width: 400px;
+  &:hover {
+    border: 3px solid #703f65;
+  }
 }

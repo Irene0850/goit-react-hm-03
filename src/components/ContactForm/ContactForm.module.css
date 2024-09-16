@@ -1,6 +1,6 @@
 .formContainer {
   max-width: 420px;
-  border: 1px solid #000;
+  border: 1px solid #a69c9c;
   padding: 10px 5px;
   display: flex;
   flex-direction: column;
@@ -8,22 +8,25 @@
   justify-content: center;
   gap: 10px;
   margin-bottom: 15px;
-  & :hover {
-    border: 1px solid linear-gradient(to right, blue, red);
-  }
 }
 
 .label {
   font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .field {
   width: 380px;
   height: 30px;
   margin: auto;
-  border: 1px solid #000;
-  & hover {
-    border: 1px solid linear-gradient(to right, blue, red);
+  border: 2px solid #817a7a;
+  border-radius: 4px;
+  background-color: azure;
+  color: #000;
+  &:hover {
+    border: 3px solid #703f65;
   }
 }
 
@@ -32,8 +35,12 @@
   border: 1px solid #000;
   min-width: 170px;
   padding: 10px;
-  background-color: bisque;
+  background-color: rgb(168, 153, 135);
   border-radius: 4px;
   cursor: pointer;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  &:hover {
+    background-color: rgb(163, 183, 74);
+  }
 }

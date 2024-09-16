@@ -10,8 +10,8 @@ const ContactForm = ({ onSubmit }) => {
   return (
     <Formik
       initialValues={{ name: "", number: "" }}
-      validationSchema={Yup.object({
-        name: Yup.string().mip(3).max(50).required(),
+      validationSchema={Yup.object().shape({
+        name: Yup.string().min(3).max(50).required(),
         number: Yup.string().min(3).max(50).required(),
       })}
       onSubmit={(values, { resetForm }) => {
