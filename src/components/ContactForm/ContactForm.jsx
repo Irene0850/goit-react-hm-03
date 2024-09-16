@@ -4,40 +4,39 @@ import * as Yup from "yup";
 
 import { nanoid } from "nanoid";
 
-import s from "./ContactForm.module.css";
-
-import React from "react";
+import css from "./ContactForm.module.css";
 
 const ContactForm = ({ onSubmit }) => {
   return (
-    <div>
-      <Formik
-        initialValues={{ name: "", number: "" }}
-        validationSchema={Yup.object({
-          name: Yup.string().mip(3).max(50).required(),
-          number: Yup.string().min(3).max(50).required(),
-        })}
-        onSubmit={(values, { resetForm }) => {
-          onSubmit({ ...values, id: nanoid() });
-        }}
-      >
-        <Form className={s.formContainer}>
-          <label className={s.label} htmlFor="name">
-            Name:
-          </label>
-          <Field className={s.field} type="text" id="name" name="name" />
+    <Formik
+      initialValues={{ name: "", number: "" }}
+      validationSchema={Yup.object({
+        name: Yup.string().mip(3).max(50).required(),
+        number: Yup.string().min(3).max(50).required(),
+      })}
+      onSubmit={(values, { resetForm }) => {
+        onSubmit({ ...values, id: nanoid() });
+        resetForm();
+      }}
+    >
+      <Form className={css.formContainer}>
+        <label className={css.label} htmlFor="name">
+          Name:
+          <Field className={css.field} type="text" id="name" name="name" />
           <ErrorMessage name="name" />
-          <label className={s.label} htmlFor="namber">
-            Number:
-          </label>
-          <Field className={s.field} type="text" id="number" name="number" />
+        </label>
+
+        <label className={css.label} htmlFor="namber">
+          Number:
+          <Field className={css.field} type="text" id="number" name="number" />
           <ErrorMessage name="number" />
-          <button className={s.button} type="submit">
-            Add contact
-          </button>
-        </Form>
-      </Formik>
-    </div>
+        </label>
+
+        <button className={css.button} type="submit">
+          Add contact
+        </button>
+      </Form>
+    </Formik>
   );
 };
 export default ContactForm;
